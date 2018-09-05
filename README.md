@@ -1,2 +1,3 @@
 # ece309-fall18-lamoros
-Repository for students to fork and modify.
+##Homework 2 9/05/2018
+1- changes hasnt been made
