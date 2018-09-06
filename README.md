@@ -4,3 +4,4 @@
 * 2- I created the repository
 * 3- I modified this file for Hw2
 * 4- I Created the Class in Codeblocks and I dont know how to make it work here
+* 5- The second step of the hw was doing the list
