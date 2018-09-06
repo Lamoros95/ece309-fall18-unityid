@@ -126,7 +126,7 @@ public:
 
         copy=tail->getItem();
         printf("This is the tail item removed: %s\n",copy.str);
-
+// or Return i; i wasnt sure if you wanted to print the number of items
 
         }
 
@@ -136,7 +136,6 @@ public:
             i++;
             copy = head->getItem(); // return copy
             ListNode *tmp = head->getNext();
-           // delete head;            // delete the node
             head = tmp;             // update the head
             if (tmp==NULL)          // removed last element
             i++;
