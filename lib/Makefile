@@ -1,6 +1,6 @@
 
 # add files you create here
-OBJ = example.o Git.o Arraylist.o
+OBJ = example.o Git.o ArrayList.o
 
 all: libece309.a
 
