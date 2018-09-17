@@ -1,0 +1,127 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+
+using namespace std;
+
+
+
+class arraylist{
+private:
+    int arraylength;//my lenght of the array
+    int listsize; // number of elements
+    void resize(); //Get the array bigger
+    bool GoAndResize();// Should i resize?
+    int numberofitems;
+public:
+    string Data[100];
+    arraylist();// So i can use :: "constructor"
+    void get(void);//how many elements are inside the list
+    void insertItem(string a);
+    void deleteItem(void);
+    void Size(void);
+
+};
+
+arraylist::arraylist()
+{//O(1)
+
+    Data[0]="";//get the array set up
+    arraylength = 10;
+    listsize = 0;
+
+
+}
+
+void arraylist::get(void){
+
+if(Data[0] != ""){
+printf("the first item is %s\n",Data[0].c_str());
+}
+else{
+
+    printf("there arent any items\n");
+}
+}
+
+
+void arraylist::Size(void){
+
+    printf("there are %d items\n", numberofitems);
+
+
+
+}
+
+void arraylist::resize(){
+
+    //I will need a new temp array
+
+    string *tmp = new string[arraylength * 2];
+    for (int i = 0; i < arraylength; i++) // coping the data of the old arrray tpo a new one
+        tmp[i]=Data[i];
+    string *Data = new string[arraylength * 2];
+ for (int i = 0; i < arraylength; i++) // coping the data of the old arrray tpo a new one
+        Data[i]=tmp[i];
+
+    delete tmp;
+
+    arraylength *= 2;
+
+}
+
+
+bool arraylist::GoAndResize(){
+
+    return arraylength == listsize;
+
+
+
+}
+
+void arraylist::insertItem(string a)
+{
+    //add to the end of the list
+    // check if there is enough space
+    if (GoAndResize())
+        resize();
+     Data[listsize] = a;
+     listsize+=1;
+     numberofitems++;
+
+
+}
+
+void arraylist::deleteItem(void){
+
+
+    numberofitems--;
+
+    printf(" the item deleted was %s\n", Data[0].c_str());
+    for(int i=0; i <= listsize;i++)
+        Data[i]=Data[i+1];
+
+   // printf(" the item deleted was %s", data[0].c_str());
+
+
+
+
+}
+
+
+//template <class T>
+int main()
+{
+    arraylist l;
+    l.get();
+    l.insertItem("pizaa");
+    l.insertItem("pizzaa");
+    l.insertItem("runn");
+    l.insertItem("lol");
+    l.deleteItem();
+   l.insertItem("run2");
+   l.deleteItem();
+   l.Size();
+   l.get();
+    return 0;
+}
