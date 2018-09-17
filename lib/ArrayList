@@ -16,11 +16,15 @@ private:
 public:
     string Data[100];
     arraylist();// So i can use :: "constructor"
-    void get(void);//how many elements are inside the list
-    void insertItem(string a);
-    void deleteItem(void);
-    void Size(void);
+    string get(void);//The last element of the list
+    void push_back(string a);
+    void remove_front(void);
+    void length(void);
+    ~arraylist(){
 
+    delete Data;
+
+    }
 };
 
 arraylist::arraylist()
@@ -33,19 +37,20 @@ arraylist::arraylist()
 
 }
 
-void arraylist::get(void){
+string arraylist::get(void){
 
-if(Data[0] != ""){
-printf("the first item is %s\n",Data[0].c_str());
+if(Data[listsize] != ""){
+printf("the first item is %s\n",Data[listsize].c_str());
 }
 else{
 
     printf("there arent any items\n");
 }
+return Data[listsize];
 }
 
 
-void arraylist::Size(void){
+void arraylist::length(void){
 
     printf("there are %d items\n", numberofitems);
 
@@ -79,7 +84,7 @@ bool arraylist::GoAndResize(){
 
 }
 
-void arraylist::insertItem(string a)
+void arraylist::push_back(string a)
 {
     //add to the end of the list
     // check if there is enough space
@@ -92,7 +97,7 @@ void arraylist::insertItem(string a)
 
 }
 
-void arraylist::deleteItem(void){
+void arraylist::remove_front(void){
 
 
     numberofitems--;
@@ -114,14 +119,14 @@ int main()
 {
     arraylist l;
     l.get();
-    l.insertItem("pizaa");
-    l.insertItem("pizzaa");
-    l.insertItem("runn");
-    l.insertItem("lol");
-    l.deleteItem();
-   l.insertItem("run2");
-   l.deleteItem();
-   l.Size();
+    l.push_back("pizaa");
+    l.push_back("pizzaa");
+    l.push_back("runn");
+    l.push_back("lol");
+    l.remove_front();
+   l.push_back("run2");
+   l.remove_front();
+   l.length();
    l.get();
     return 0;
 }
